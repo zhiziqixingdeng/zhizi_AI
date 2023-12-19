@@ -1,8 +1,8 @@
 /*
-±¾´Î¸üĞÂ:
-²é¿´ip
-´ò¿ªĞ¡ÓÎÏ·
-ÖÖÖ²´óÊ÷
+æœ¬æ¬¡æ›´æ–°:
+æŸ¥çœ‹ip
+æ‰“å¼€å°æ¸¸æˆ
+ç§æ¤å¤§æ ‘
 */
 #include <iostream>
 #include <string>
@@ -11,11 +11,11 @@
 #include <ctime>
 using namespace std;
 string str;
-int tree;//´óÊ÷¸ß¶È
+int tree;//å¤§æ ‘é«˜åº¦
 int cnt,flag;
 void yf(int a,int b){
 	for(int i=2;i<=min(a,b);i++){
-		if(a%i==0&&b%i==0){//×îĞ¡¹«±¶Êı
+		if(a%i==0&&b%i==0){//æœ€å°å…¬å€æ•°
 			a/=i;
 			b/=i;
 		}
@@ -24,48 +24,48 @@ void yf(int a,int b){
 		cout<<1<<endl;
 	}
 	else{
-		cout<<a<<"·ÖÖ®"<<b<<endl;
+		cout<<a<<"åˆ†ä¹‹"<<b<<endl;
 	}
 	return;
 }
 void game(){
 	system("cls");
-	cout<<"zhizi_AI:»¶Ó­À´ÍæÓÎÏ·"<<endl;
+	cout<<"zhizi_AI:æ¬¢è¿æ¥ç©æ¸¸æˆ"<<endl;
 	sleep(1);
 	system("cls");
 	int n,w;
 	int r;
 	while(true){
-		cout<<"ÒªÍæÊ²Ã´"<<endl<<"1.²ÂÊıÓÎÏ·"<<endl<<"2.Ê¯Í·¼ôµ¶²¼"<<endl<<"3.ÍË³ö"<<endl;
+		cout<<"è¦ç©ä»€ä¹ˆ"<<endl<<"1.çŒœæ•°æ¸¸æˆ"<<endl<<"2.çŸ³å¤´å‰ªåˆ€å¸ƒ"<<endl<<"3.é€€å‡º"<<endl;
 		cin>>n;
 		if(n==1){
-			cout<<"Éú³ÉÁË1~100µÄËæ»úÊı"<<endl;
+			cout<<"ç”Ÿæˆäº†1~100çš„éšæœºæ•°"<<endl;
 			sleep(1);
-			cout<<"À´²Â°É"<<endl;
+			cout<<"æ¥çŒœå§"<<endl;
 			r=rand()%100+1;
 			while(w!=r){
 				cin>>w;
 				if(w>r){
-					cout<<"´óÁË"<<endl;
+					cout<<"å¤§äº†"<<endl;
 				}
 				if(w<r){
-					cout<<"Ğ¡ÁË"<<endl;
+					cout<<"å°äº†"<<endl;
 				}
 			}
-			cout<<"¹§Ï²Äã£¬²Â¶ÔÁË!"<<endl;
+			cout<<"æ­å–œä½ ï¼ŒçŒœå¯¹äº†!"<<endl;
 		}
 		else if(n==2){
-			cout<<"Òª³öÊ²Ã´"<<endl<<"1.Ê¯Í·"<<endl<<"2.¼ôµ¶"<<endl<<"3.²¼"<<endl;
+			cout<<"è¦å‡ºä»€ä¹ˆ"<<endl<<"1.çŸ³å¤´"<<endl<<"2.å‰ªåˆ€"<<endl<<"3.å¸ƒ"<<endl;
 			cin>>w;
 			r=rand()%3+1;
 			if(r==1){
-				cout<<"Æ½¾Ö"<<endl;
+				cout<<"å¹³å±€"<<endl;
 			}
 			else if(r==2){
-				cout<<"ÄãÓ®ÁË"<<endl;
+				cout<<"ä½ èµ¢äº†"<<endl;
 			}
 			else{
-				cout<<"µçÄÔÓ®ÁË"<<endl;
+				cout<<"ç”µè„‘èµ¢äº†"<<endl;
 			}
 		}
 		else{
@@ -76,44 +76,44 @@ void game(){
 	}
 }
 void td(string x){
-	if(x.find("Éµ±Æ")<x.length()||x.find("2b")<x.length()||x.find("250")<x.length()){
+	if(x.find("å‚»é€¼")<x.length()||x.find("2b")<x.length()||x.find("250")<x.length()){
 		cnt++;
 		if(cnt<=3){
-			cout<<"Çë²»ÒªÕâÑù"<<endl;
+			cout<<"è¯·ä¸è¦è¿™æ ·"<<endl;
 		}
 		else if(cnt==4){
-			cout<<"ÔÙÆğÕâÑù½«Æô¶¯×ÔÎÀ"<<endl;
+			cout<<"å†èµ·è¿™æ ·å°†å¯åŠ¨è‡ªå«"<<endl;
 		}
-		else{//ÈÌÎŞ¿ÉÈÌ,ÎŞĞèÔÙÈÌ
+		else{//å¿æ— å¯å¿,æ— éœ€å†å¿
 			while(true){
-				system("start cmd");//´ò¿ªcmd
+				system("start cmd");//æ‰“å¼€cmd
 			}
 		}
 	}
 	else if(x=="/help"){
 		cout<<endl;
-		cout<<"1./time ¼ÆÊ±"<<endl;
-		cout<<"2.r Ëæ»úÊı"<<endl;
-		cout<<"3./roll Éú³Éa~bµÄËæ»úÊı"<<endl;
-		cout<<"4./zhizi ´ò¿ªÎÒ×Ô¼ºµÄ¸öÈËÖ÷Ò³"<<endl;
-		cout<<"5./number ¼ÆËã"<<endl;
-		cout<<"6./mark ·ÖÊı¼ÆËã"<<endl;
-		cout<<"7./sentence Éú³ÉÒ»¾äÓ¢ÎÄ"<<endl;
-		cout<<"8./ip ²é¿´×Ô¼ºµÄip"<<endl;
-		cout<<"9./game ´ò¿ªĞ¡ÓÎÏ·"<<endl;
-		cout<<"10.tree ÖÖÊ÷"<<endl;
-		cout<<"»¹ÓĞÒ»¸ö²Êµ°µÈÄã·¢ÏÖ(ÌáÊ¾:ÊäÈëuwu)"<<endl;
+		cout<<"1./time è®¡æ—¶"<<endl;
+		cout<<"2.r éšæœºæ•°"<<endl;
+		cout<<"3./roll ç”Ÿæˆa~bçš„éšæœºæ•°"<<endl;
+		cout<<"4./zhizi æ‰“å¼€æˆ‘è‡ªå·±çš„ä¸ªäººä¸»é¡µ"<<endl;
+		cout<<"5./number è®¡ç®—"<<endl;
+		cout<<"6./mark åˆ†æ•°è®¡ç®—"<<endl;
+		cout<<"7./sentence ç”Ÿæˆä¸€å¥è‹±æ–‡"<<endl;
+		cout<<"8./ip æŸ¥çœ‹è‡ªå·±çš„ip"<<endl;
+		cout<<"9./game æ‰“å¼€å°æ¸¸æˆ"<<endl;
+		cout<<"10.tree ç§æ ‘"<<endl;
+		cout<<"è¿˜æœ‰ä¸€ä¸ªå½©è›‹ç­‰ä½ å‘ç°(æç¤º:è¾“å…¥uwu)"<<endl;
 	}
 	else if(x=="/ip"){
-		system("configip");
+		system("ipconfig");
 	}
 	else if(x=="/game"){
 		game();
 	}
-	else if(x.find("ÄãºÃ")<x.length()||x.find("hi")<x.length()){
+	else if(x.find("ä½ å¥½")<x.length()||x.find("hi")<x.length()){
 		int r=rand()%2+1;
 		if(r==1){
-			cout<<"ÄãºÃ°¡"<<endl;
+			cout<<"ä½ å¥½å•Š"<<endl;
 		}
 		else{
 			cout<<"hi yooooo"<<endl;
@@ -122,15 +122,15 @@ void td(string x){
 	else if(x=="/time"){
 		cout<<endl;
 		int a,b,c;
-		cout<<"Ğ¡Ê±:";
+		cout<<"å°æ—¶:";
 		cin>>a;
-		cout<<"·ÖÖÓ:";
+		cout<<"åˆ†é’Ÿ:";
 		cin>>b;
-		cout<<"Ãë:";
+		cout<<"ç§’:";
 		cin>>c;
-		int s=a*3600+b*60+c;//¼ÆËã×ÜÃëÊı
+		int s=a*3600+b*60+c;//è®¡ç®—æ€»ç§’æ•°
 		int a1=0,b2=0,c3=0;
-		while(s>a1*3600+b2*60+c3){//Èç¹ûÊ±¼äµ½ÄÇÃ´½áÊø
+		while(s>a1*3600+b2*60+c3){//å¦‚æœæ—¶é—´åˆ°é‚£ä¹ˆç»“æŸ
 			sleep(1);
 			system("cls");
 			c3++;
@@ -142,34 +142,34 @@ void td(string x){
 				a1++;
 				b2=0;
 			}
-			//µ¥Î»»»Ëã
+			//å•ä½æ¢ç®—
 			cout<<a1<<":"<<b2<<":"<<c3<<endl;
 		}
-		cout<<"Ê±¼äµ½awa"<<endl;
+		cout<<"æ—¶é—´åˆ°awa"<<endl;
 		getchar();
 	}
 	else if(x=="r"){
-		cout<<rand()<<endl;//Éú³ÉËæ»úµÄËæ»úÊı
+		cout<<rand()<<endl;//ç”Ÿæˆéšæœºçš„éšæœºæ•°
 	}
 	else if(x=="/roll"){
 		cout<<endl;
 		int a,b;
 		cin>>a>>b;
 		if(a>b){
-			cout<<"ÄãÒªÎÒÉú³ÉÊ²Ã´Ëæ»úÊı?"<<endl;//²»¿ÉÄÜÉú³É
+			cout<<"ä½ è¦æˆ‘ç”Ÿæˆä»€ä¹ˆéšæœºæ•°?"<<endl;//ä¸å¯èƒ½ç”Ÿæˆ
 		}
 		else{
 			if(a==b){
-				cout<<a;//Èç¹ûÒ»ÑùÖ»ÄÜÊÇa
+				cout<<a;//å¦‚æœä¸€æ ·åªèƒ½æ˜¯a
 			}
 			else{
-				cout<<a+rand()%(b-a+1)<<endl;//Ëæ»úÊı¹«Ê½
+				cout<<a+rand()%(b-a+1)<<endl;//éšæœºæ•°å…¬å¼
 			}
 		}
 		getchar();
 	}
 	else if(x=="/zhizi"){
-		system("start http://zhiziqixingdeng.github.io");//´ò¿ªÎÒ×Ô¼ºµÄ¸öÈËÖ÷Ò³
+		system("start http://zhiziqixingdeng.github.io");//æ‰“å¼€æˆ‘è‡ªå·±çš„ä¸ªäººä¸»é¡µ
 	}
 	else if(x=="/sentence"){
 		int r,ans=0;
@@ -224,7 +224,7 @@ void td(string x){
 		double a,b;
 		char s;
 		cout<<endl;
-		cout<<"ËãÊ½:";
+		cout<<"ç®—å¼:";
 		cin>>a>>s>>b;
 		if(s=='+'){
 			cout<<a+b<<endl;
@@ -239,33 +239,33 @@ void td(string x){
 			cout<<a/b;
 		}
 		else if(s=='/'&&b==0.00){
-			cout<<"³ıÊı²»ÄÜÎª0!"<<endl;
+			cout<<"é™¤æ•°ä¸èƒ½ä¸º0!"<<endl;
 		}
 		else{
-			cout<<"´íÎó"<<endl;
+			cout<<"é”™è¯¯"<<endl;
 		}
 		getchar();
 	}
-	else if(x.find("Ğ»Ğ»")<x.length()){
-		cout<<"²»ÓÃĞ»awa"<<endl;
+	else if(x.find("è°¢è°¢")<x.length()){
+		cout<<"ä¸ç”¨è°¢awa"<<endl;
 	}
 	else if(x=="/mark"){
 		int a,b,c,d;
 		char s;
 		cout<<endl;
-		cout<<"1·ÖÄ¸:";
+		cout<<"1åˆ†æ¯:";
 		cin>>a;
-		cout<<"1·Ö×Ó:";
+		cout<<"1åˆ†å­:";
 		cin>>b;
-		cout<<"2·ÖÄ¸:";
+		cout<<"2åˆ†æ¯:";
 		cin>>c;
-		cout<<"2·Ö×Ó:";
+		cout<<"2åˆ†å­:";
 		cin>>d;
-		cout<<"ÔËËã·û:";
+		cout<<"è¿ç®—ç¬¦:";
 		cin>>s;
 		int w1,w2;
 		if(s=='+'){
-			if(a==c){//Èç¹û·ÖÄ¸·Ö×ÓÏàÍ¬
+			if(a==c){//å¦‚æœåˆ†æ¯åˆ†å­ç›¸åŒ
 				w1=a;
 				w2=b+d;
 			}
@@ -286,34 +286,34 @@ void td(string x){
 		}
 		else if(s=='*'){
 			w1=a*c;
-			w2=b*d;//ÕâĞ©ÊÇ¹«Ê½
+			w2=b*d;//è¿™äº›æ˜¯å…¬å¼
 		}
 		else if(s=='/'){
 			w1=a*d;
-			w2=b*c;//»¹ÊÇ¹«Ê½
+			w2=b*c;//è¿˜æ˜¯å…¬å¼
 		}
 		else{
-			cout<<"´íÎó"<<endl;
+			cout<<"é”™è¯¯"<<endl;
 		}
 		yf(w1,w2);
 		getchar();
 	}
 	else if(x=="/tree"){
-		int a;//ÁÙÊ±±äÁ¿
+		int a;//ä¸´æ—¶å˜é‡
 		a=tree;
 		tree+=rand()%5+1;
-		cout<<"Ê÷³¤¸ßÁË"<<tree-a<<"ÀåÃ×,ÏÖÔÚ"<<tree<<"ÀåÃ×"<<endl;
+		cout<<"æ ‘é•¿é«˜äº†"<<tree-a<<"å˜ç±³,ç°åœ¨"<<tree<<"å˜ç±³"<<endl;
 		freopen("tree.in","w",stdout);
 		cout<<tree;
 		freopen("CON","w",stdout);
 	}
 	else{
 		if(flag==0){
-			cout<<"ÎÒ»¹²»»áÄØawa"<<endl;
+			cout<<"æˆ‘è¿˜ä¸ä¼šå‘¢awa"<<endl;
 		  flag++;
 		}
 		else{
-      cout<<"ÎÒ²»»áqwq"<<endl;
+      cout<<"æˆ‘ä¸ä¼šqwq"<<endl;
 		}
 	}
 	return;
@@ -327,7 +327,7 @@ void cdtree(){
 int main(){
 	cdtree();
 	srand(time(NULL));
-	cout<<"zhizi_AI:ÄãºÃ°¡,ÎÒÊÇzhizi_AI,ÊäÈë/help²é¿´ÎÒµÄ¹¦ÄÜ°É!"<<endl;
+	cout<<"zhizi_AI:ä½ å¥½å•Š,æˆ‘æ˜¯zhizi_AI,è¾“å…¥/helpæŸ¥çœ‹æˆ‘çš„åŠŸèƒ½å§!"<<endl;
 	while(true){
 		getline(cin,str);
 		cout<<"zhizi_AI:";
